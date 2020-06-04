@@ -36,11 +36,10 @@ Bsp:
   -  &gt;  version: Größer als die definierte Version
   -  &gt; = version: Größer bzw. gleich der definierten Version
   -  &lt;  version: Kleiner als die definierte Version
-  -  &lt; = version: Kleiner bzw. gleich der definierten Version  
+  -  &lt; = version: Kleiner bzw. gleich der definierten Version
 
-
-- ^ = Version with same Majorversion 
-- ~ = Version with same Major and Minorversion
+ ^ = Version with same Majorversion  
+ ~ = Version with same Major and Minorversion
 
 
  

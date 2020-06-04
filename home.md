@@ -8,22 +8,12 @@
  - [VisualStudioCode][VisualStudioCode]
  - [Markdown][Markdown]
  - [PlantUML][PlantUML]
- - Glyphy
+ - [Graphviz][Graphviz]
 
 [VisualStudioCode]: visualStudioCode.md
 [PlantUML]: https://plantuml.com/
 [MarkDown]: Markdown/markdown.md
-
-
-- [x] Task 1
-- [ ] Task 2
+[Graphviz]: graphviz.md
 
 
 
-```json
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
