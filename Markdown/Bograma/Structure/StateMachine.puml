@@ -1,0 +1,71 @@
+@startuml
+
+state RUN{
+
+    IDLE --> STARTING
+
+    EXECUTE --> COMPLETING
+    COMPLETING --> COMPLETE
+    COMPLETE --> RESETTING
+
+    state EXECUTE{
+        state SETUP{
+            state CALIBRATE_SHEET_CALL
+            state SINGLE_SHEET
+            state SETUP_SHEET_CALL
+
+            SETUP_SHEET_CALL --> [*] : STOP
+        }
+        state JOB_RUN {
+            state CONT_SHEET
+            state CONT_SHEET_BREAK
+            state CONT_SHEET_CALL_STARTUP
+        }
+        STARTING --> NO_SHEET_CALL
+        NO_SHEET_CALL --> SINGLE_SHEET
+        SINGLE_SHEET --> NO_SHEET_CALL
+        NO_SHEET_CALL --> CONT_SHEET
+        CONT_SHEET --> NO_SHEET_CALL
+        CONT_SHEET_CALL_STARTUP --> CONT_SHEET
+        CONT_SHEET --> CONT_SHEET_BREAK
+        CONT_SHEET_BREAK --> CONT_SHEET
+        STARTING --> CONT_SHEET_CALL_STARTUP
+        CALIBRATE_SHEET_CALL --> NO_SHEET_CALL
+        NO_SHEET_CALL --> CALIBRATE_SHEET_CALL
+
+
+    }
+
+    [*] --> RESETTING
+    RESETTING --> IDLE
+
+}
+
+RUN --> STOP : Stop
+STOP --> RUN : Reset
+
+state STOP {
+    [*] -right-> STOPPING
+    STOPPING --> STOPPED
+    STOPPED -left-> [*]
+
+}
+
+RUN --> ABORTING : Error
+
+state ABORT {
+
+    state ABORTING{
+        state c <<choice>>
+        c --> EM_STOP
+        EM_STOP --> [*]
+        c --> RUN_EMPTY
+        RUN_EMPTY --> [*]
+    }
+    ABORTING --> ABORTED
+    ABORTED --> CLEARING
+    CLEARING --> STOPPED
+}
+
+@enduml
+

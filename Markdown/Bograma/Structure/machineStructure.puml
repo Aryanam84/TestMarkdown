@@ -1,0 +1,49 @@
+@startuml
+
+package PUnitModule{
+    class ReciepeManager
+    class AlarmManager
+    class HardwareManager
+    class ModeControl
+    class StateControl
+}
+
+note right of PUnitModule
+    UnitModule equals one Machine like BSR550
+end note
+
+package PEquipmentModule{
+    class UnitModule
+    interface iAlarm
+    interface iProperty
+    interface iPosition
+    interface iCommand
+    interface iState
+    interface iMode
+
+    'class UnitModule implements iAlarm
+    class UnitModule implements iProperty
+    class UnitModule implements iPosition
+    class UnitModule implements iState
+    class UnitModule implements iMode
+    class UnitModule implements iCommand
+}
+note right of PEquipmentModule
+    EquipmentModule equals Compartment of a machine
+    like Feeder,Positioning,Cutting, BreakOutStation, BlowOutStation
+end note
+
+
+package PControlModule{
+    interface ICmdActor
+    interface IStateSensor
+}
+note right of PControlModule
+    ControlModule equals an Actor or Sensor
+    like Cylinder, Button, DoublesheetDetecion
+end note
+
+PUnitModule -[hidden]-- PEquipmentModule
+PEquipmentModule --[hidden]- PControlModule
+
+@enduml

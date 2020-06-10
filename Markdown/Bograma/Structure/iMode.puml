@@ -1,0 +1,14 @@
+@startuml iMode
+package iMode{
+
+    interface iMode{
+        Mode:eModes
+    }
+
+    enum eModes {
+        AUTO
+        MANU
+        MAINTENANCE
+    }
+
+@enduml

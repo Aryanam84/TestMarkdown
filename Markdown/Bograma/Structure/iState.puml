@@ -1,0 +1,25 @@
+@startuml iState
+package iState{
+
+    interface iState{
+        State:eStates
+    }
+
+    enum eStates {
+        IDLE
+        STARTING
+        EXECUTE
+        COMPLETING
+        COMPLETE
+
+        RESETTING
+
+        STOPPED
+        STOPPING
+
+        ABORTING
+        ABORTED
+        CLEARING
+    }
+
+    @enduml

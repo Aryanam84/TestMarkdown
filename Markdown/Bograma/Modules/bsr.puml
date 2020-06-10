@@ -1,0 +1,32 @@
+@startuml
+
+namespace feeder #DDDDDDD {
+    namespace tornado{
+        class clTornadoBeltMaxon
+        class clTornados
+        class clTornado
+        interface iMaxon
+
+        class clTornadoBeltMaxon implements iMaxon
+        clTornados "1" *-- "5" clTornado : contains
+        clTornados "1" *-- "1" clTornadoBeltMaxon : contains
+    }
+    namespace sideblowers {
+        class clSideblowers
+        class clSideblower
+        clSideblowers "1" *-- "4" clSideblower : contains
+    }
+
+    namespace stackTable{
+        class clStacktable
+        class clDriveFc
+        class clDriveFcCan
+    }
+
+    class clSideair
+    class clSplithead
+    class clVakuumpumpe
+
+}
+
+@enduml
