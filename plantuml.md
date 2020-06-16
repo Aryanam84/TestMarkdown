@@ -2,9 +2,11 @@
 
 ### Homepage
 
-[PlantUML]
+[PlantUML]  
+[PlantUML_Reference]
 
 [PlantUML]: https://plantuml.com/
+[PlantUML_Reference]: http://pdf.plantuml.net/PlantUML_Language_Reference_Guide_en.pdf
 
 ### Umgebungsvariable, Environment Variable
  Damit PlantUml gerendert werden kann ist eine Java Umgebungsvariable nötig
