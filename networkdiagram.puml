@@ -1,0 +1,36 @@
+nwdiag {
+  // define group at outside network definitions
+  group {
+    color = "#FF7777";
+  }
+
+  network machine {
+    PLC_Servo[address = "192.168.100.1"];
+    PLC_Basic[address = "192.168.100.10"];
+    Display_Basic[address = "192.168.100.12"];
+    PLC_SLA[address = "192.168.100.20"];
+    PLC_ACC[address = "192.168.100.30"];
+    PLC_PCC[address = "192.168.100.31"];
+    AT_550_PLC[address = "192.168.100.40"];
+    Cognex_Barcode[address = "192.168.100.70"];
+    Cognex_CAM[address = "192.168.100.50"];
+    Cognex_Display[address = "192.168.100.52"];
+    Remotemaintenance[address ="192.168.100.199"];
+  }
+
+  network customer{
+      Remotemaintenance[address ="DHCP"];
+  }  
+
+  network dmz_bograma{
+      
+  }  
+
+  network bograma{
+    RemoteServer[address ="83.173.232.186"];
+    Remotemaintenance[address ="83.173.232.186"];
+  }  
+
+
+
+}
